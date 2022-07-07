@@ -1,31 +1,19 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import EditorPage from "./pages/EditorPage";
-import { Toaster } from "react-hot-toast";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Dashboard } from "./components/Dashboard";
+import { Preferences } from "./components/Preferences";
 
 function App() {
   return (
-    <>
-      <div>
-        <Toaster
-          position="top-center"
-          toastOptions={{
-            success: {
-              theme: {
-                primary: "#008080",
-              },
-            },
-          }}
-        ></Toaster>
-      </div>
+    <div className="wrapper">
+      <h1>Application</h1>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/editor/:roomId" element={<EditorPage />} />
+          <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/preferences" element={<Preferences />}></Route>
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 
